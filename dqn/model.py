@@ -1,3 +1,8 @@
+# This script is originally from:
+# https://github.com/udacity/deep-reinforcement-learning/blob/master/dqn/solution/model.py
+# And is shared under MIT License:
+# https://github.com/udacity/deep-reinforcement-learning/blob/master/LICENSE
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

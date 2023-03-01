@@ -1,3 +1,8 @@
+# This script is originally from:
+# https://github.com/udacity/deep-reinforcement-learning/blob/master/dqn/solution/dqn_agent.py
+# And is shared under MIT License:
+# https://github.com/udacity/deep-reinforcement-learning/blob/master/LICENSE
+
 import random
 from collections import deque, namedtuple
 from distutils.version import StrictVersion
