@@ -13,7 +13,7 @@ This environment is episodic, and to solve it, the agent must get an average sco
 ## Summary
 
   - [Getting Started](#getting-started)
-  - [Runing the tests](#running-the-tests)
+  - [Runing the scripts](#running-the-scripts)
   - [Authors](#authors)
   - [License](#license)
 
