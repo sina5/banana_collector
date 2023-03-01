@@ -60,6 +60,7 @@ To train the model, use [train_agent.py](scripts/train_agent.py) script. This sc
 - Target Score to save trained model: --target-score
 
 ```bash
+cd scripts
 python train_agent.py --unity-app Banana.app --target-score 13
 ```
 
@@ -87,6 +88,7 @@ To compare a trained agent with a untrained one, use [test_agent.py] script. Thi
 - Path to saved model checkpoint: --checkpoint-file
 
 ```bash
+cd scripts
 python test_agent.py --unity-app Banana.app --checkpoint-file ../checkpoints/checkpoint_481.pth
 ```
 
