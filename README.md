@@ -98,3 +98,5 @@ python test_agent.py --unity-app Banana.app --checkpoint-file ../checkpoints/che
 ## License
 
 This project is open source under MIT License and free to use. It is for educational purposes only and provided as is.
+
+I have used parts of scripts in [Udacity DRL](https://github.com/udacity/deep-reinforcement-learning/) repo under [MIT License](https://github.com/udacity/deep-reinforcement-learning/blob/master/LICENSE). Scripts in [dqn](dqn) and [mlagents](mlagents) are based on [Udacity DRL](https://github.com/udacity/deep-reinforcement-learning/) repo with minor modifications.
