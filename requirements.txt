@@ -1,0 +1,7 @@
+protobuf==3.20
+torch==1.13
+numpy
+grpcio
+pillow
+plotly
+kaleido
