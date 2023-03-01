@@ -14,7 +14,7 @@ This environment is episodic, and to solve it, the agent must get an average sco
 
   - [Getting Started](#getting-started)
   - [Runing the scripts](#running-the-scripts)
-  - [Authors](#authors)
+  - [Author](#authors)
   - [License](#license)
 
 ## Getting Started
