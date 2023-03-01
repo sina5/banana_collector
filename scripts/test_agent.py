@@ -22,7 +22,7 @@ def parse_args():
         "--checkpoint-file",
         type=str,
         help="Path to a trained Pytorch model checkpoint",
-        default="../checkpoints/checkpoint_532.pth",
+        default="../checkpoints/checkpoint_481.pth",
     )
     parser.add_argument(
         "-u",

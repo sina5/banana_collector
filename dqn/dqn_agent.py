@@ -258,6 +258,7 @@ def dqn(
     scores_window = deque(maxlen=100)  # last 100 scores
     checkpoint_path = None
     best_checkpoint_saved = False
+    first_score_match = 0
     eps = eps_start  # initialize epsilon
     for i_episode in range(1, n_episodes + 1):
         env_info = env.reset(train_mode=True)[brain_name]
@@ -290,20 +291,21 @@ def dqn(
                 )
             )
         if np.mean(scores_window) >= target_score:
-            print(
-                "\nEnvironment solved in {:d}"
-                " episodes!\tAverage Score: {:.2f}".format(
-                    i_episode - 100, np.mean(scores_window)
-                )
-            )
             checkpoint_path = f"checkpoint_{i_episode}.pth"
             if not best_checkpoint_saved:
+                print(
+                    "\nEnvironment solved in {:d}"
+                    " episodes!\tAverage Score: {:.2f}".format(
+                        i_episode, np.mean(scores_window)
+                    )
+                )
                 torch.save(agent.qnetwork_local.state_dict(), checkpoint_path)
                 print(f"Trained model weights saved to: {checkpoint_path}")
                 best_checkpoint_saved = True
-            # break
+                first_score_match = i_episode
+            break
         if i_episode == n_episodes:
             checkpoint_path = f"checkpoint_{i_episode}.pth"
             torch.save(agent.qnetwork_local.state_dict(), checkpoint_path)
             print(f"Trained model weights saved to: {checkpoint_path}")
-    return scores
+    return scores, first_score_match

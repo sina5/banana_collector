@@ -5,6 +5,7 @@ sys.path.insert(1, "../dqn")
 
 import os
 from argparse import ArgumentParser
+from typing import List
 
 import numpy as np
 import plotly.graph_objects as go
@@ -26,7 +27,7 @@ def parse_args():
     )
     parser.add_argument(
         "-t",
-        "--target_score",
+        "--target-score",
         type=int,
         help="Target training score",
         default=13,
@@ -55,7 +56,10 @@ def start_unity_env(file_name, worker_id=10):
 
 
 def plot_scores(
-    scores, target_score=13, output_file="images/train_scores.png"
+    scores: List[float],
+    first_score_match: int = None,
+    target_score: int = 13,
+    output_file: str = "../images/train_scores.png",
 ):
     fig = go.Figure(
         data=go.Scatter(x=np.arange(len(scores)), y=scores, name="Scores")
@@ -66,6 +70,21 @@ def plot_scores(
             y=target_score * np.ones(len(scores)),
             name="Target",
         )
+    )
+
+    fig.update_layout(
+        annotations=[
+            go.layout.Annotation(
+                x=first_score_match,
+                y=target_score,
+                showarrow=True,
+                arrowhead=4,
+                arrowwidth=2,
+                ax=first_score_match - 10,
+                ay=target_score + 4,
+                text="Agent passed score threshold here",
+            )
+        ]
     )
 
     fig.update_layout(
@@ -109,8 +128,8 @@ if __name__ == "__main__":
         seed=0,
     )
     target_score = args.get("target_score", 13)
-    scores = dqn(
+    scores, first_score_match = dqn(
         agent, brain_name, env, n_episodes=2000, target_score=target_score
     )
-    plot_scores(scores, target_score)
+    plot_scores(scores, first_score_match, target_score)
     env.close()
